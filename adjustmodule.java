@@ -49,7 +49,7 @@ public class adjustmodule {
 
             if ((maxLines == 1 && paint.measureText(text, 0, text.length()) > targetWidth)
                 || getLineCount(text, paint, size, targetWidth, displayMetrics) > maxLines) {
-                                      size = getAutofitTextSize(text, paint, targetWidth, maxLines, low, high, precision,
+                                      size = getAutofitTextSize(text, paint, targetWidth, maxLines, low, high,
                                       displayMetrics);
                                     }
 
