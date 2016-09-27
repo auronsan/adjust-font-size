@@ -6,8 +6,9 @@ public class testFragment extends Fragment {
 
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
         mWebView = (WebView) rootView.findViewById(R.id.webview);
-        fontSize = mWebView.getSettings().getDefaultFontSize();
+        fontSize = mWebView.getSettings().getDefaultFontSize();                    
         
+                
         return rootView;
         }
         private void fontSizePlus() {
