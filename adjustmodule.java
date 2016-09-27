@@ -2,21 +2,15 @@ public class adjustmodule {
             private WebView mWebView;
             private int fontSize;
             
-            public setFontSize(View rootView,int value){ 
-                        mWebView = (WebView) rootView.findViewById(R.id.webview);                    
+            private void changeFontSize(int value) {
                         mWebView.getSettings().setDefaultFontSize(value);
-                        return rootView;
             }
-            private void fontSizePlus(View rootView) {
-                        mWebView = (WebView) rootView.findViewById(R.id.webview);  
-                        fontSize = mWebView.getSettings().getDefaultFontSize();
+            private void fontSizePlus() {
                         fontSize++;
                         this.changeFontSize(fontSize);
             }
 
-            private void fontSizeMinus(View rootView) {
-                        mWebView = (WebView) rootView.findViewById(R.id.webview);  
-                        fontSize = mWebView.getSettings().getDefaultFontSize();
+            private void fontSizeMinus() {
                         fontSize--;
                         this.changeFontSize(fontSize);
             }
