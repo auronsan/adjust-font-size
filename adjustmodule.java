@@ -90,7 +90,7 @@ public class adjustmodule {
                         return mMaxTextSize;
             }
             public int getMaxLines() {
-               return mMaxLines;
+                        return mMaxLines;
             }
             public float getTextSize() {
                         return mTextSize;
@@ -99,9 +99,6 @@ public class adjustmodule {
                         setTextSize(TypedValue.COMPLEX_UNIT_SP, size);
             }
             public void setTextSize(int unit, float size) {
-                        if (mIsAutofitting) {
-                                    return;
-                        }
                         Context context = mTextView.getContext();  
                         Resources r = Resources.getSystem();        
                         if (context != null) {
