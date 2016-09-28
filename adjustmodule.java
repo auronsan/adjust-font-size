@@ -17,17 +17,17 @@ import android.view.View;
 import android.widget.TextView;
 
 public class adjustmodule {
-            private static WebView mWebView;
+            private static TextView view;
             private static int fontSize;
             private int mMaxLines;
             private float mMinTextSize;
             private float mMaxTextSize;
             
-            private static void getFontSize(WebView mWebView) {
-                        fontSize = mWebView.getSettings().getDefaultFontSize(value);
+            private static void getFontSize(TextView view) {
+                        fontSize = view.getSettings().getDefaultFontSize(value);
             }
             private static void changeFontSize(int value) {
-                        mWebView.getSettings().setDefaultFontSize(value);
+                        view.getSettings().setDefaultFontSize(value);
             }
             private static void fontSizePlus() {
                         fontSize++;
@@ -38,6 +38,7 @@ public class adjustmodule {
                         fontSize--;
                         this.changeFontSize(fontSize);
             }
+            
             private static float getAutofitTextSize(CharSequence text, TextPaint paint,
                                                     float targetWidth, int maxLines, float low, float high,
                                                     DisplayMetrics displayMetrics) {
