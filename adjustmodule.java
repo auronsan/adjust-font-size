@@ -87,7 +87,7 @@ public class adjustmodule {
                                                 return mid;
                                     }
                         }
-}
+            }
             private static void autofit(TextView view, TextPaint paint, float minTextSize, float maxTextSize,
                 int maxLines){
                         if (maxLines <= 0 || maxLines == Integer.MAX_VALUE) {
@@ -160,6 +160,6 @@ public class adjustmodule {
                         if (mTextSize != size) {
                                     mTextSize = size;
                         }
-}
+            }
             
 }
