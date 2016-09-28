@@ -24,10 +24,10 @@ public class adjustmodule {
             private float mMaxTextSize;
             
             private static void getFontSize(TextView view) {
-                        fontSize = view.getSettings().getDefaultFontSize(value);
+                        fontSize = view.getTextSize();
             }
             private static void changeFontSize(int value) {
-                        view.getSettings().setDefaultFontSize(value);
+                        view.getTextSize();
             }
             private static void fontSizePlus() {
                         fontSize++;
