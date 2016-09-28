@@ -38,6 +38,56 @@ public class adjustmodule {
                         fontSize--;
                         this.changeFontSize(fontSize);
             }
+            private static float getAutofitTextSize(CharSequence text, TextPaint paint,
+                                                    float targetWidth, int maxLines, float low, float high,
+                                                    DisplayMetrics displayMetrics) {
+                        float mid = (low + high) / 2.0f;
+                        int lineCount = 1;
+                        StaticLayout layout = null;
+                        paint.setTextSize(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX, mid,
+                                                                    displayMetrics));                       
+                        if (maxLines != 1) {
+                                    layout = new StaticLayout(text, paint, (int)targetWidth, Layout.Alignment.ALIGN_NORMAL,
+                                                              1.0f, 0.0f, true);
+                                    lineCount = layout.getLineCount();
+                        }
+                        if (SPEW) Log.d(TAG, "low=" + low + " high=" + high + " mid=" + mid +
+                                        " target=" + targetWidth + " maxLines=" + maxLines + " lineCount=" + lineCount);
+                        if (lineCount > maxLines) {                                    
+                                    if ((high - low) < 0) {
+                                                return low;
+                                    }
+                                    return getAutofitTextSize(text, paint, targetWidth, maxLines, low, mid, 
+                                                              displayMetrics);
+                        }
+                        else if (lineCount < maxLines) {
+                                    return getAutofitTextSize(text, paint, targetWidth, maxLines, mid, high,
+                                                              displayMetrics);
+                        }
+                        else {
+                                    float maxLineWidth = 0;
+                                    if (maxLines == 1) {
+                                                maxLineWidth = paint.measureText(text, 0, text.length());
+                                    } else {
+                                                for (int i = 0; i < lineCount; i++) {
+                                                            if (layout.getLineWidth(i) > maxLineWidth) {
+                                                                        maxLineWidth = layout.getLineWidth(i);
+                                                            }
+                                                }
+                                    }
+                                    if ((high - low) < 0) {
+                                                return low;
+                                    } else if (maxLineWidth > targetWidth) {
+                                                return getAutofitTextSize(text, paint, targetWidth, maxLines, low, mid,
+                                                                          displayMetrics);
+                                    } else if (maxLineWidth < targetWidth) {
+                                                return getAutofitTextSize(text, paint, targetWidth, maxLines, mid, high,
+                                                                          displayMetrics);
+                                    } else {
+                                                return mid;
+                                    }
+                        }
+}
             private static void autofit(TextView view, TextPaint paint, float minTextSize, float maxTextSize,
                 int maxLines){
                         if (maxLines <= 0 || maxLines == Integer.MAX_VALUE) {
