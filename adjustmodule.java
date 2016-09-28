@@ -82,10 +82,34 @@ public class adjustmodule {
                         }
             public float getMinTextSize() {
                         return mMinTextSize;
-             }
+            }
             public float getMaxTextSize() {
                         return mMaxTextSize;
             }
             public int getMaxLines() {
                return mMaxLines;
             }
+            public float getTextSize() {
+                        return mTextSize;
+            }
+            public void setTextSize(float size) {
+                        setTextSize(TypedValue.COMPLEX_UNIT_SP, size);
+            }
+            public void setTextSize(int unit, float size) {
+                        if (mIsAutofitting) {
+                                    return;
+                        }
+                        Context context = mTextView.getContext();  
+                        Resources r = Resources.getSystem();        
+                        if (context != null) {
+                                    r = context.getResources();
+                        }
+                        setRawTextSize(TypedValue.applyDimension(unit, size, r.getDisplayMetrics()));
+            }
+            private void setRawTextSize(float size) {
+                        if (mTextSize != size) {
+                                    mTextSize = size;
+                        }
+}
+            
+}
