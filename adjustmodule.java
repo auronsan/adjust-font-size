@@ -23,6 +23,9 @@ public class adjustmodule {
             private float mMinTextSize;
             private float mMaxTextSize;
             
+            private static void getFontSize(WebView mWebView) {
+                        fontSize = mWebView.getSettings().getDefaultFontSize(value);
+            }
             private static void changeFontSize(int value) {
                         mWebView.getSettings().setDefaultFontSize(value);
             }
