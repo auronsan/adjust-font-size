@@ -18,25 +18,22 @@ import android.widget.TextView;
 
 public class adjustmodule {
             private static TextView view;
-            private static int fontSize;
+            private static int mTextSize;
             private int mMaxLines;
             private float mMinTextSize;
             private float mMaxTextSize;
             
-            private static void getFontSize(TextView view) {
-                        fontSize = view.getTextSize();
-            }
-            private static void changeFontSize(int value) {
+            private static void changeTextSize(int value) {
                         view.setTextSize(value);
             }
-            private static void fontSizePlus() {
-                        fontSize++;
-                        this.changeFontSize(fontSize);
+            private static void TextSizePlus() {
+                        mTextSize++;
+                        this.changeTextSize(mTextSize);
             }
 
-            private static void fontSizeMinus() {
-                        fontSize--;
-                        this.changeFontSize(fontSize);
+            private static void TextSizeMinus() {
+                        mTextSize--;
+                        this.changeTextSize(mTextSize);
             }
             
             private static float getAutofitTextSize(CharSequence text, TextPaint paint,
