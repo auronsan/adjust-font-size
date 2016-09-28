@@ -1,3 +1,21 @@
+import android.content.Context;
+import android.content.res.Resources;
+import android.content.res.TypedArray;
+import android.os.Build;
+import android.text.Editable;
+import android.text.Layout;
+import android.text.StaticLayout;
+import android.text.TextPaint;
+import android.text.TextWatcher;
+import android.text.method.SingleLineTransformationMethod;
+import android.text.method.TransformationMethod;
+import android.util.AttributeSet;
+import android.util.DisplayMetrics;
+import android.util.Log;
+import android.util.TypedValue;
+import android.view.View;
+import android.widget.TextView;
+
 public class adjustmodule {
             private static WebView mWebView;
             private static int fontSize;
