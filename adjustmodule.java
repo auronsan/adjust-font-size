@@ -27,7 +27,7 @@ public class adjustmodule {
                         fontSize = view.getTextSize();
             }
             private static void changeFontSize(int value) {
-                        view.getTextSize();
+                        view.getTextSize(value);
             }
             private static void fontSizePlus() {
                         fontSize++;
